@@ -1,13 +1,7 @@
 import socket
 import uvicorn
 from fastapi import FastAPI
-
-# FastAPIアプリケーションを作成
-app = FastAPI()
-
-@app.get("/")
-def read_root():
-    return {"message": "Hello, FastAPI!"}
+from Server import app 
 
 def find_free_port():
     """OSから使用可能な空いているポートを取得する"""
@@ -17,5 +11,4 @@ def find_free_port():
     
 if __name__ == "__main__":
     port = find_free_port()
-    print(f"Starting server on http://localhost:{port}")
-    uvicorn.run(app, host="localhost", port=port)
+    uvicorn.run(app, host="localhost", port=port,  log_config=None)
