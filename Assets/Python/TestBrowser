@@ -1,0 +1,3 @@
+import webbrowser
+url = "google.com"
+webbrowser.open(f"{url}")
